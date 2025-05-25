@@ -15,7 +15,8 @@ export const Title = styled.Text`
 `
 
 export const ResturantCard = styled(Card)`
-  background-color: white;
+  background-color: ${(props)=>props.theme.colors.bg.primary};
+  margin-bottom: ${(props)=>props.theme.space[3]};
 `
 
 export const ResturantCardCover = styled(Card.Cover)`
