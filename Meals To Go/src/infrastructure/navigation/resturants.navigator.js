@@ -2,6 +2,7 @@ import { createStackNavigator, TransitionPresets } from "@react-navigation/stack
 import { Text } from 'react-native'
 
 import ResturantsScreen from "../../features/restaurants/screens/restaurants.screen";
+import RestaurantDetailScreen from "../../features/restaurants/screens/restaurant-detail.screen";
 
 const RestaurantStack = createStackNavigator();
 
@@ -15,7 +16,7 @@ export const RestaurantsNavigator = () => {
       />
       <RestaurantStack.Screen
         name="RestaurantDetail"
-        component={()=><Text>Restaurant Detail</Text>}
+        component={RestaurantDetailScreen}  // RestaurantDetailScreen gets route as a props (hover over the element to see why)
       />
     </RestaurantStack.Navigator>
   );

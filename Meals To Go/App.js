@@ -17,6 +17,7 @@ import { useFonts as useLato , Lato_400Regular } from '@expo-google-fonts/lato';
 import { Text } from 'react-native';
 import { RestaurantsContextProvider } from './src/services/restaurants/mock/restaurants.context';
 import { LocationContextProvider } from './src/services/location/location.context';
+import { FavouritesContextProvider } from './src/services/favourites/favourites.context';
 import { Navigation } from './src/infrastructure/navigation';
 
 
@@ -38,11 +39,13 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         {/* <ResturantsScreen /> */}
-        <LocationContextProvider>
+        <FavouritesContextProvider>
+          <LocationContextProvider>
           <RestaurantsContextProvider>
             <Navigation />
-        </RestaurantsContextProvider>
-      </LocationContextProvider>
+          </RestaurantsContextProvider>
+          </LocationContextProvider>
+        </FavouritesContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style='auto' />
     </>

@@ -1,4 +1,4 @@
-import { Image } from "react-native";
+import { Image, View } from "react-native";
 import styled from "styled-components/native";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
@@ -9,6 +9,7 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 
 import { Address, Icon, Open, Rating, ResturantCard, ResturantCardCover, Section, SectionEnd } from "./resturant-info-card.styles";
+import { Favourite } from "../../../components/favourites/favourite.component";
 
 
 export default function ResturantInfoCard({restaurant}) {
@@ -25,7 +26,10 @@ export default function ResturantInfoCard({restaurant}) {
      
   return (
     <ResturantCard elevation={5}>
-      <ResturantCardCover key={name} source={{uri : photos[0]}} />
+      <View>
+        <Favourite restaurant={restaurant} />
+        <ResturantCardCover key={name} source={{uri : photos[0]}} />
+      </View>
       <Card.Content>
         <Text variant='label'>{name}</Text>
         <Section>

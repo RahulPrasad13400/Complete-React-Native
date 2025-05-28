@@ -4,14 +4,18 @@ import ResturantInfoCard from '../components/restaurant-info-card.component';
 import styled from 'styled-components/native';
 import { useContext } from 'react';
 import { ActivityIndicator, color } from 'react-native-paper'
+import { useState} from 'react'
 
 import { RestaurantsContext } from '../../../services/restaurants/mock/restaurants.context';
+import { FavouritesContext } from '../../../services/favourites/favourites.context';
+
+import { FavouritesBar } from '../../../components/favourites/favourites-bar.component'
 
 const isAndroid = Platform.OS === 'android'
 
 import { SafeArea } from '../../../components/utility/safe-area.component';
-import { Search } from '../components/search.component';
 import { Spacer } from '../../../components/spacer/spacer.component';
+import {Search} from '../components/search.component'
 
 // const SafeArea = styled(SafeAreaView)`
 //   flex: 1;
@@ -42,19 +46,24 @@ const LoadingContainer = styled.View`
 export default function ResturantsScreen({ navigation }) {
 
   const {restaurants, isLoading } = useContext(RestaurantsContext)
+
+  const { favourites } = useContext(FavouritesContext)
+  const [isToggled, setIsToggled] = useState(false)
   
   return (
     <SafeArea>
-      { isLoading && (
+      { isLoading && ( 
         <LoadingContainer>
-          <ActivityIndicator size={50}
+          <ActivityIndicator size={50}    
             style={{marginLeft : -25}}
             animating={true}
             color='blue'/>
         </LoadingContainer>
       )}
       
-      <Search />
+      <Search isFavouritesToggled={isToggled} onFavouritesToggle={()=>setIsToggled(!isToggled)} />
+      {isToggled && <FavouritesBar favourites={favourites} onNavigate={navigation.navigate} />}
+
      {/* <ResturantListContainer>
       <ResturantInfoCard />
      </ResturantListContainer> */}  
@@ -67,7 +76,7 @@ export default function ResturantsScreen({ navigation }) {
 
       <ResturantList data={restaurants} 
         renderItem={({item})=> (
-          <TouchableOpacity onPress={()=>navigation.navigate("RestaurantDetail")}>
+          <TouchableOpacity onPress={()=>navigation.navigate("RestaurantDetail",{restaurant : item})}>
           <Spacer>
             <ResturantInfoCard restaurant={item} />
           </Spacer>

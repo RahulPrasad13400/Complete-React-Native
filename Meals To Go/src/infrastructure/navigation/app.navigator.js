@@ -6,6 +6,7 @@ import ResturantsScreen from '../../features/restaurants/screens/restaurants.scr
 import { SafeArea } from '../../components/utility/safe-area.component';
 
 import { RestaurantsNavigator } from './resturants.navigator';
+import { MapScreen } from '../../features/maps/screens/map.screen';
 
 const Tab = createBottomTabNavigator()
 
@@ -13,14 +14,6 @@ const Settings = () =>{
   return <SafeArea>
     <Text>
       Settings
-    </Text>
-  </SafeArea>
-}
-
-const Map = () => {
-  return <SafeArea>
-    <Text>
-      Map
     </Text>
   </SafeArea>
 }
@@ -48,7 +41,7 @@ export const AppNavigator = () => {
               headerShown : false
             })} > 
             <Tab.Screen name='Resturants' component={RestaurantsNavigator} />
-            <Tab.Screen name='Map' component={Map} />
+            <Tab.Screen name='Map' component={MapScreen} />
             <Tab.Screen name='Settings' component={Settings} />
           </Tab.Navigator>
         </NavigationContainer> 
