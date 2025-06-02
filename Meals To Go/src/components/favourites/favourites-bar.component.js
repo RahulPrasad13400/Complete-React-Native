@@ -17,6 +17,9 @@ export const FavouritesBar = ({favourites, onNavigate}) => {
     }
 
     return <FavouritesWrapper>
+        <Spacer variant='left.large'>
+            <Text variant='caption'>Favourites</Text>
+        </Spacer>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}> 
             {favourites.map((restaurant)=>{
                 const key = restaurant.name

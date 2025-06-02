@@ -1,5 +1,6 @@
 {
   "name": "mealstogo",
+  "license": "0BSD",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,34 +8,42 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "eslint . --ext .js"
+    "lint": "eslint . --ext .js,.jsx",
+    "lint:watch": "eslint . --ext .js,.jsx --watch"
   },
+  "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/eslint-parser": "^7.27.1",
+    "@eslint/eslintrc": "^3.3.1",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-native": "^5.0.0",
+    "metro-react-native-babel-preset": "^0.77.0",
+    "prettier": "^3.5.3"
+  },
+  "private": true,
   "dependencies": {
-    "@expo-google-fonts/lato": "^0.3.0",
-    "@expo-google-fonts/oswald": "^0.3.0",
+    "@eslint/js": "^9.27.0",
+    "@expo-google-fonts/lato": "^0.4.0",
+    "@expo-google-fonts/oswald": "^0.4.0",
+    "@react-native-async-storage/async-storage": "2.1.2",
     "@react-navigation/bottom-tabs": "^7.3.13",
     "@react-navigation/native": "^7.1.9",
     "@react-navigation/stack": "^7.3.2",
-    "camelize": "^1.0.1",
-    "expo": "~53.0.9",
-    "expo-font": "~13.3.1",
-    "expo-status-bar": "~2.2.3",
+    "expo": "^53.0.9",
+    "expo-status-bar": "^2.2.3",
+    "firebase": "^11.8.1",
     "react": "19.0.0",
-    "react-native": "0.79.2",
-    "react-native-gesture-handler": "^2.25.0",
+    "react-native": "^0.79.2",
+    "react-native-gesture-handler": "~2.24.0",
     "react-native-maps": "1.20.1",
-    "react-native-paper": "^5.14.1",
+    "react-native-paper": "^5.14.5",
     "react-native-safe-area-context": "5.4.0",
-    "react-native-screens": "~4.10.0",
     "react-native-svg": "15.11.2",
     "react-native-webview": "13.13.5",
     "styled-components": "^6.1.18"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@react-native-community/eslint-config": "^3.2.0",
-    "eslint": "^9.26.0",
-    "prettier": "^3.5.3"
-  },
-  "private": true
+  }
 }
